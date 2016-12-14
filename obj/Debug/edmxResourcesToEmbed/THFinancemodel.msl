@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="THFinanceModelStoreContainer" CdmEntityContainer="THFinanceEntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="THFinanceModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMP_JOINDATE" ColumnName="EMP_JOINDATE" />
+          <ScalarProperty Name="EMP_EMAIL" ColumnName="EMP_EMAIL" />
+          <ScalarProperty Name="EMP_SALRY" ColumnName="EMP_SALRY" />
+          <ScalarProperty Name="EMP_TECHID" ColumnName="EMP_TECHID" />
+          <ScalarProperty Name="EMP_DEPTID" ColumnName="EMP_DEPTID" />
+          <ScalarProperty Name="EMP_ORGID" ColumnName="EMP_ORGID" />
+          <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_branches">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_branches">
+        <MappingFragment StoreEntitySet="tbl_branches">
+          <ScalarProperty Name="branchName" ColumnName="branchName" />
+          <ScalarProperty Name="branchid" ColumnName="branchid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_chitti">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_chitti">
+        <MappingFragment StoreEntitySet="tbl_chitti">
+          <ScalarProperty Name="CHITTI_NAME" ColumnName="CHITTI_NAME" />
+          <ScalarProperty Name="CHITTI_ID" ColumnName="CHITTI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_managers">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_managers">
+        <MappingFragment StoreEntitySet="tbl_managers">
+          <ScalarProperty Name="mgbrnch_id" ColumnName="mgbrnch_id" />
+          <ScalarProperty Name="manager_name" ColumnName="manager_name" />
+          <ScalarProperty Name="manage_id" ColumnName="manage_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_payee">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_payee">
+        <MappingFragment StoreEntitySet="tbl_payee">
+          <ScalarProperty Name="givenamount" ColumnName="givenamount" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="NomineeProof" ColumnName="NomineeProof" />
+          <ScalarProperty Name="NomineeName" ColumnName="NomineeName" />
+          <ScalarProperty Name="payeeProof" ColumnName="payeeProof" />
+          <ScalarProperty Name="managerId" ColumnName="managerId" />
+          <ScalarProperty Name="branchId" ColumnName="branchId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_payment">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_payment">
+        <MappingFragment StoreEntitySet="tbl_payment">
+          <ScalarProperty Name="remainingdays" ColumnName="remainingdays" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="remainingAmount" ColumnName="remainingAmount" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+          <ScalarProperty Name="presentDate" ColumnName="presentDate" />
+          <ScalarProperty Name="prepayDate" ColumnName="prepayDate" />
+          <ScalarProperty Name="totalPayment" ColumnName="totalPayment" />
+          <ScalarProperty Name="managerId" ColumnName="managerId" />
+          <ScalarProperty Name="branchId" ColumnName="branchId" />
+          <ScalarProperty Name="payId" ColumnName="payId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Borrowerpayment">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_Borrowerpayment">
+        <MappingFragment StoreEntitySet="tbl_Borrowerpayment">
+          <ScalarProperty Name="penalityDays" ColumnName="penalityDays" />
+          <ScalarProperty Name="penalityAmount" ColumnName="penalityAmount" />
+          <ScalarProperty Name="borrowerRemainingDays" ColumnName="borrowerRemainingDays" />
+          <ScalarProperty Name="borrowerRemainingAmount" ColumnName="borrowerRemainingAmount" />
+          <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+          <ScalarProperty Name="paymentDate" ColumnName="paymentDate" />
+          <ScalarProperty Name="pay_borowerStartDate" ColumnName="pay_borowerStartDate" />
+          <ScalarProperty Name="pay_managerid" ColumnName="pay_managerid" />
+          <ScalarProperty Name="pay_LoantypeId" ColumnName="pay_LoantypeId" />
+          <ScalarProperty Name="PayId" ColumnName="PayId" />
+          <ScalarProperty Name="pay_BranchId" ColumnName="pay_BranchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LoanType">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_LoanType">
+        <MappingFragment StoreEntitySet="tbl_LoanType">
+          <ScalarProperty Name="monthlyInstalllment" ColumnName="monthlyInstalllment" />
+          <ScalarProperty Name="RateofInterest" ColumnName="RateofInterest" />
+          <ScalarProperty Name="Periods" ColumnName="Periods" />
+          <ScalarProperty Name="AmountOfLoan" ColumnName="AmountOfLoan" />
+          <ScalarProperty Name="TypeOfVehicle" ColumnName="TypeOfVehicle" />
+          <ScalarProperty Name="LoanendDate" ColumnName="LoanendDate" />
+          <ScalarProperty Name="dateofLoan" ColumnName="dateofLoan" />
+          <ScalarProperty Name="LoanBorrowerId" ColumnName="LoanBorrowerId" />
+          <ScalarProperty Name="LoanId" ColumnName="LoanId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_borrowerPaymentmethod">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_borrowerPaymentmethod">
+        <MappingFragment StoreEntitySet="tbl_borrowerPaymentmethod">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="totalpayment" ColumnName="totalpayment" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="borrowermanager" ColumnName="borrowermanager" />
+          <ScalarProperty Name="borrowerName" ColumnName="borrowerName" />
+          <ScalarProperty Name="borrowerStartdate" ColumnName="borrowerStartdate" />
+          <ScalarProperty Name="borrowerPenalitydays" ColumnName="borrowerPenalitydays" />
+          <ScalarProperty Name="borrowerReaminingamount" ColumnName="borrowerReaminingamount" />
+          <ScalarProperty Name="borrowerPayamount" ColumnName="borrowerPayamount" />
+          <ScalarProperty Name="borrowerPaymentdate" ColumnName="borrowerPaymentdate" />
+          <ScalarProperty Name="borrowerLoanid" ColumnName="borrowerLoanid" />
+          <ScalarProperty Name="borrowerBranchid" ColumnName="borrowerBranchid" />
+          <ScalarProperty Name="borrowerPayid" ColumnName="borrowerPayid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PaymentType">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_PaymentType">
+        <MappingFragment StoreEntitySet="tbl_PaymentType">
+          <ScalarProperty Name="monthlyInterest" ColumnName="monthlyInterest" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="givenamount" ColumnName="givenamount" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="paymentBorrowerId" ColumnName="paymentBorrowerId" />
+          <ScalarProperty Name="paymentId" ColumnName="paymentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tble_Vehicle">
+      <EntityTypeMapping TypeName="THFinanceModel.tble_Vehicle">
+        <MappingFragment StoreEntitySet="tble_Vehicle">
+          <ScalarProperty Name="VehicleBorroerId" ColumnName="VehicleBorroerId" />
+          <ScalarProperty Name="VehicleInsurance" ColumnName="VehicleInsurance" />
+          <ScalarProperty Name="VehicleKeyNo" ColumnName="VehicleKeyNo" />
+          <ScalarProperty Name="VehicleColor" ColumnName="VehicleColor" />
+          <ScalarProperty Name="VehicleBHP" ColumnName="VehicleBHP" />
+          <ScalarProperty Name="VehicleEngineNo" ColumnName="VehicleEngineNo" />
+          <ScalarProperty Name="VehicleChasisNo" ColumnName="VehicleChasisNo" />
+          <ScalarProperty Name="Vehiclemodel" ColumnName="Vehiclemodel" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THF_User">
+      <EntityTypeMapping TypeName="THFinanceModel.THF_User">
+        <MappingFragment StoreEntitySet="THF_User">
+          <ScalarProperty Name="imagesave" ColumnName="imagesave" />
+          <ScalarProperty Name="UserProfessional" ColumnName="UserProfessional" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_borrower">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_borrower">
+        <MappingFragment StoreEntitySet="tbl_borrower">
+          <ScalarProperty Name="borrowerproof" ColumnName="borrowerproof" />
+          <ScalarProperty Name="borrowerPhoto" ColumnName="borrowerPhoto" />
+          <ScalarProperty Name="borrowerproofType" ColumnName="borrowerproofType" />
+          <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="modifiedyby" ColumnName="modifiedyby" />
+          <ScalarProperty Name="borrowerAddress" ColumnName="borrowerAddress" />
+          <ScalarProperty Name="borrowerPhone" ColumnName="borrowerPhone" />
+          <ScalarProperty Name="BorrowerDesignation" ColumnName="BorrowerDesignation" />
+          <ScalarProperty Name="borrowerFatherName" ColumnName="borrowerFatherName" />
+          <ScalarProperty Name="borrowerName" ColumnName="borrowerName" />
+          <ScalarProperty Name="borrowerId" ColumnName="borrowerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Guarantor">
+      <EntityTypeMapping TypeName="THFinanceModel.tbl_Guarantor">
+        <MappingFragment StoreEntitySet="tbl_Guarantor">
+          <ScalarProperty Name="GuarantorDesignation" ColumnName="GuarantorDesignation" />
+          <ScalarProperty Name="Guarantorphoto" ColumnName="Guarantorphoto" />
+          <ScalarProperty Name="GuarantorProof" ColumnName="GuarantorProof" />
+          <ScalarProperty Name="GuarantorProoftype" ColumnName="GuarantorProoftype" />
+          <ScalarProperty Name="G_modifiedBy" ColumnName="G_modifiedBy" />
+          <ScalarProperty Name="G_createdBy" ColumnName="G_createdBy" />
+          <ScalarProperty Name="G_modifiedDate" ColumnName="G_modifiedDate" />
+          <ScalarProperty Name="G_createdDate" ColumnName="G_createdDate" />
+          <ScalarProperty Name="GuarantorAddress" ColumnName="GuarantorAddress" />
+          <ScalarProperty Name="GuarantorPhone" ColumnName="GuarantorPhone" />
+          <ScalarProperty Name="GuarantorFatherName" ColumnName="GuarantorFatherName" />
+          <ScalarProperty Name="GuarantorName" ColumnName="GuarantorName" />
+          <ScalarProperty Name="GuarantorborrowerId" ColumnName="GuarantorborrowerId" />
+          <ScalarProperty Name="GuarantorId" ColumnName="GuarantorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

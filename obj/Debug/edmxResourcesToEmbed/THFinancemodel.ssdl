@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Rathna.dbo.Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="EMP_ORGID" />
+      <PropertyRef Name="EMP_DEPTID" />
+      <PropertyRef Name="EMP_TECHID" />
+      <PropertyRef Name="EMP_SALRY" />
+      <PropertyRef Name="EMP_EMAIL" />
+      <PropertyRef Name="EMP_JOINDATE" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="EMP_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMP_ORGID" Type="int" Nullable="false" />
+    <Property Name="EMP_DEPTID" Type="int" Nullable="false" />
+    <Property Name="EMP_TECHID" Type="int" Nullable="false" />
+    <Property Name="EMP_SALRY" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMP_EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMP_JOINDATE" Type="date" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_borrower">
+    <Key>
+      <PropertyRef Name="borrowerId" />
+    </Key>
+    <Property Name="borrowerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="borrowerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="borrowerFatherName" Type="varchar" MaxLength="50" />
+    <Property Name="BorrowerDesignation" Type="varchar" MaxLength="50" />
+    <Property Name="borrowerPhone" Type="varchar" MaxLength="50" />
+    <Property Name="borrowerAddress" Type="varchar(max)" />
+    <Property Name="modifiedyby" Type="int" Nullable="false" />
+    <Property Name="createdby" Type="int" Nullable="false" />
+    <Property Name="createdDate" Type="date" Nullable="false" />
+    <Property Name="modifiedDate" Type="date" Nullable="false" />
+    <Property Name="borrowerproofType" Type="varchar" MaxLength="50" />
+    <Property Name="borrowerPhoto" Type="varbinary(max)" />
+    <Property Name="borrowerproof" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Borrowerpayment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="pay_BranchId" Type="int" Nullable="false" />
+    <Property Name="PayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pay_LoantypeId" Type="int" Nullable="false" />
+    <Property Name="pay_managerid" Type="int" Nullable="false" />
+    <Property Name="pay_borowerStartDate" Type="date" Nullable="false" />
+    <Property Name="paymentDate" Type="date" Nullable="false" />
+    <Property Name="paidAmount" Type="int" Nullable="false" />
+    <Property Name="borrowerRemainingAmount" Type="int" Nullable="false" />
+    <Property Name="borrowerRemainingDays" Type="int" Nullable="false" />
+    <Property Name="penalityAmount" Type="int" Nullable="false" />
+    <Property Name="penalityDays" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_borrowerPaymentmethod">
+    <Key>
+      <PropertyRef Name="borrowerPayid" />
+    </Key>
+    <Property Name="borrowerPayid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="borrowerBranchid" Type="int" Nullable="false" />
+    <Property Name="borrowerLoanid" Type="int" Nullable="false" />
+    <Property Name="borrowerPaymentdate" Type="date" Nullable="false" />
+    <Property Name="borrowerPayamount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="borrowerReaminingamount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="borrowerPenalitydays" Type="int" Nullable="false" />
+    <Property Name="borrowerStartdate" Type="date" Nullable="false" />
+    <Property Name="borrowerName" Type="int" Nullable="false" />
+    <Property Name="borrowermanager" Type="int" />
+    <Property Name="createdby" Type="int" />
+    <Property Name="modified" Type="int" />
+    <Property Name="createddate" Type="date" />
+    <Property Name="modifieddate" Type="date" />
+    <Property Name="totalpayment" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_branches">
+    <Key>
+      <PropertyRef Name="branchid" />
+    </Key>
+    <Property Name="branchid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branchName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_chitti">
+    <Key>
+      <PropertyRef Name="CHITTI_ID" />
+    </Key>
+    <Property Name="CHITTI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CHITTI_NAME" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Guarantor">
+    <Key>
+      <PropertyRef Name="GuarantorId" />
+    </Key>
+    <Property Name="GuarantorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuarantorborrowerId" Type="int" Nullable="false" />
+    <Property Name="GuarantorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GuarantorFatherName" Type="varchar" MaxLength="50" />
+    <Property Name="GuarantorPhone" Type="varchar" MaxLength="50" />
+    <Property Name="GuarantorAddress" Type="varchar(max)" />
+    <Property Name="G_createdDate" Type="date" />
+    <Property Name="G_modifiedDate" Type="date" />
+    <Property Name="G_createdBy" Type="int" />
+    <Property Name="G_modifiedBy" Type="int" />
+    <Property Name="GuarantorProoftype" Type="varchar" MaxLength="50" />
+    <Property Name="GuarantorProof" Type="varbinary(max)" />
+    <Property Name="Guarantorphoto" Type="varbinary(max)" />
+    <Property Name="GuarantorDesignation" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_LoanType">
+    <Key>
+      <PropertyRef Name="LoanId" />
+    </Key>
+    <Property Name="LoanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoanBorrowerId" Type="int" Nullable="false" />
+    <Property Name="dateofLoan" Type="date" />
+    <Property Name="LoanendDate" Type="date" />
+    <Property Name="TypeOfVehicle" Type="varchar" MaxLength="50" />
+    <Property Name="AmountOfLoan" Type="int" />
+    <Property Name="Periods" Type="int" />
+    <Property Name="RateofInterest" Type="int" />
+    <Property Name="monthlyInstalllment" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_managers">
+    <Key>
+      <PropertyRef Name="manage_id" />
+    </Key>
+    <Property Name="manage_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="manager_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mgbrnch_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_payee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="branchId" Type="int" Nullable="false" />
+    <Property Name="managerId" Type="int" Nullable="false" />
+    <Property Name="payeeProof" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NomineeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NomineeProof" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="startdate" Type="date" Nullable="false" />
+    <Property Name="enddate" Type="date" Nullable="false" />
+    <Property Name="paymentmethod" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="givenamount" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_payment">
+    <Key>
+      <PropertyRef Name="payId" />
+    </Key>
+    <Property Name="payId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branchId" Type="int" Nullable="false" />
+    <Property Name="managerId" Type="int" Nullable="false" />
+    <Property Name="totalPayment" Type="int" Nullable="false" />
+    <Property Name="prepayDate" Type="date" Nullable="false" />
+    <Property Name="presentDate" Type="date" Nullable="false" />
+    <Property Name="paidAmount" Type="int" Nullable="false" />
+    <Property Name="name" Type="int" Nullable="false" />
+    <Property Name="remainingAmount" Type="int" Nullable="false" />
+    <Property Name="paymentmethod" Type="int" />
+    <Property Name="remainingdays" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_PaymentType">
+    <Key>
+      <PropertyRef Name="paymentId" />
+    </Key>
+    <Property Name="paymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paymentBorrowerId" Type="int" Nullable="false" />
+    <Property Name="PaymentType" Type="varchar" MaxLength="50" />
+    <Property Name="PaymentDate" Type="date" Nullable="false" />
+    <Property Name="PaymentAmount" Type="int" Nullable="false" />
+    <Property Name="givenamount" Type="varchar" MaxLength="50" />
+    <Property Name="paymentmethod" Type="int" />
+    <Property Name="monthlyInterest" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tble_Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleType" Type="varchar" MaxLength="50" />
+    <Property Name="Vehiclemodel" Type="nchar" MaxLength="10" />
+    <Property Name="VehicleChasisNo" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleEngineNo" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleBHP" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleColor" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleKeyNo" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleInsurance" Type="varchar" MaxLength="50" />
+    <Property Name="VehicleBorroerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="THF_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserProfessional" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="imagesave" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_tbl_managers_tbl_branches">
+    <End Role="tbl_branches" Type="Self.tbl_branches" Multiplicity="1" />
+    <End Role="tbl_managers" Type="Self.tbl_managers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_branches">
+        <PropertyRef Name="branchid" />
+      </Principal>
+      <Dependent Role="tbl_managers">
+        <PropertyRef Name="mgbrnch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="THFinanceModelStoreContainer">
+    <EntitySet Name="tbl_borrower" EntityType="Self.tbl_borrower" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Borrowerpayment" EntityType="Self.tbl_Borrowerpayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_borrowerPaymentmethod" EntityType="Self.tbl_borrowerPaymentmethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_branches" EntityType="Self.tbl_branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_chitti" EntityType="Self.tbl_chitti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Guarantor" EntityType="Self.tbl_Guarantor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LoanType" EntityType="Self.tbl_LoanType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_managers" EntityType="Self.tbl_managers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_payee" EntityType="Self.tbl_payee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_payment" EntityType="Self.tbl_payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_PaymentType" EntityType="Self.tbl_PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tble_Vehicle" EntityType="Self.tble_Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THF_User" EntityType="Self.THF_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Employee].[EMP_NAME] AS [EMP_NAME], 
+    [Employee].[EMP_ORGID] AS [EMP_ORGID], 
+    [Employee].[EMP_DEPTID] AS [EMP_DEPTID], 
+    [Employee].[EMP_TECHID] AS [EMP_TECHID], 
+    [Employee].[EMP_SALRY] AS [EMP_SALRY], 
+    [Employee].[EMP_EMAIL] AS [EMP_EMAIL], 
+    [Employee].[EMP_JOINDATE] AS [EMP_JOINDATE], 
+    [Employee].[ID] AS [ID]
+    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_managers_tbl_branches" Association="Self.FK_tbl_managers_tbl_branches">
+      <End Role="tbl_branches" EntitySet="tbl_branches" />
+      <End Role="tbl_managers" EntitySet="tbl_managers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

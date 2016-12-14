@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEBE8484-F0EA-4F33-9036-9312A59FC09A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>THFinance</RootNamespace>
+    <AssemblyName>THFinance</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dhanush.SmartHR, Version=1.1.0.0, Culture=neutral, PublicKeyToken=460ab841a975896d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SMHR_Latest\Bin\Dhanush.SmartHR.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\..\..\..\praject\aspPoject\WebApplication1\WebApplication1\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="borrowerPayment.aspx" />
+    <Content Include="BorrowerRegistration.aspx" />
+    <Content Include="css\inner.css" />
+    <Content Include="css\selectize.bootstrap3.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="datepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Guarantee.aspx" />
+    <Content Include="HtmlPage1.html" />
+    <Content Include="images\ddd.png" />
+    <Content Include="images\ff.png" />
+    <Content Include="images\sahasrafinance.png" />
+    <Content Include="innerpage.html" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\selectize.js" />
+    <Content Include="js\selectize.min.js" />
+    <Content Include="LoanType.aspx" />
+    <Content Include="NewPayee.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\Ge703xbc.woff" />
+    <Content Include="fonts\Geo703b.woff" />
+    <Content Include="fonts\Geo703bc.woff" />
+    <Content Include="fonts\Geo703bi.woff" />
+    <Content Include="fonts\Geo703m.woff" />
+    <Content Include="fonts\Geo703mc.woff" />
+    <Content Include="fonts\Geo703mi.woff" />
+    <Content Include="fonts\Geo703xb.woff" />
+    <Content Include="fonts\Geo712b.woff" />
+    <Content Include="fonts\Geo712l.woff" />
+    <Content Include="fonts\Geo712li.woff" />
+    <Content Include="fonts\Geo712m.woff" />
+    <Content Include="fonts\Geo712mi.woff" />
+    <Content Include="fonts\Geo712xb.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="default.aspx" />
+    <Content Include="Branches.aspx" />
+    <Content Include="Mangers.aspx" />
+    <EntityDeploy Include="THFinancemodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>THFinancemodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="payee.aspx" />
+    <Content Include="PayeeDetails.aspx" />
+    <Content Include="Payement.aspx" />
+    <Content Include="PaymentMethod.aspx" />
+    <Content Include="paymenttype.aspx" />
+    <Content Include="THFinancemodel.edmx.diagram">
+      <DependentUpon>THFinancemodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="THFinance.Master" />
+    <Content Include="datepicker\css\bootstrap-datepicker.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker.min.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.min.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="datepicker\css\bootstrap-datepicker3.standalone.min.css.map" />
+    <None Include="Properties\PublishProfiles\THFinance.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\bulding-bg.JPG" />
+    <Content Include="images\inner-eticketingtext.PNG" />
+    <Content Include="images\login-bg.JPG" />
+    <Content Include="images\logo-inner.PNG" />
+    <Content Include="images\logo.PNG" />
+    <Content Include="images\mid-round.PNG" />
+    <Content Include="images\round-bg-n.png" />
+    <Content Include="images\round-bg-tab.PNG" />
+    <Content Include="images\round-bg.PNG" />
+    <Content Include="images\tab-bg-n.PNG" />
+    <Content Include="images\welcome-text.png" />
+    <Content Include="images\_round-bg-n.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="THFinancemodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>THFinancemodel.edmx</DependentUpon>
+      <LastGenOutput>THFinancemodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="THFinancemodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>THFinancemodel.edmx</DependentUpon>
+      <LastGenOutput>THFinancemodel.cs</LastGenOutput>
+    </Content>
+    <Content Include="vehicle.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="borrowerPayment.aspx.cs">
+      <DependentUpon>borrowerPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="borrowerPayment.aspx.designer.cs">
+      <DependentUpon>borrowerPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowerRegistration.aspx.cs">
+      <DependentUpon>BorrowerRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BorrowerRegistration.aspx.designer.cs">
+      <DependentUpon>BorrowerRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee.aspx.cs">
+      <DependentUpon>Guarantee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guarantee.aspx.designer.cs">
+      <DependentUpon>Guarantee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoanType.aspx.cs">
+      <DependentUpon>LoanType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoanType.aspx.designer.cs">
+      <DependentUpon>LoanType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPayee.aspx.cs">
+      <DependentUpon>NewPayee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewPayee.aspx.designer.cs">
+      <DependentUpon>NewPayee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payee.aspx.cs">
+      <DependentUpon>payee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payee.aspx.designer.cs">
+      <DependentUpon>payee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayeeDetails.aspx.cs">
+      <DependentUpon>PayeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayeeDetails.aspx.designer.cs">
+      <DependentUpon>PayeeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payement.aspx.cs">
+      <DependentUpon>Payement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payement.aspx.designer.cs">
+      <DependentUpon>Payement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethod.aspx.cs">
+      <DependentUpon>PaymentMethod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentMethod.aspx.designer.cs">
+      <DependentUpon>PaymentMethod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paymenttype.aspx.cs">
+      <DependentUpon>paymenttype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paymenttype.aspx.designer.cs">
+      <DependentUpon>paymenttype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tble_Vehicle.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_borrower.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Borrowerpayment.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_borrowerPaymentmethod.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_branches.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_chitti.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Guarantor.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LoanType.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_managers.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_payee.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_payment.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_PaymentType.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THFinance.Master.cs">
+      <DependentUpon>THFinance.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="THFinance.Master.designer.cs">
+      <DependentUpon>THFinance.Master</DependentUpon>
+    </Compile>
+    <Compile Include="THFinancemodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>THFinancemodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THFinancemodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THFinancemodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>THFinancemodel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="THF_User.cs">
+      <DependentUpon>THFinancemodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Branches.aspx.cs">
+      <DependentUpon>Branches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Branches.aspx.designer.cs">
+      <DependentUpon>Branches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mangers.aspx.cs">
+      <DependentUpon>Mangers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mangers.aspx.designer.cs">
+      <DependentUpon>Mangers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vehicle.aspx.cs">
+      <DependentUpon>vehicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vehicle.aspx.designer.cs">
+      <DependentUpon>vehicle.aspx</DependentUpon>
+    </Compile>
+    <Content Include="rathna.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="Uploads\proof\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56092</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56093/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

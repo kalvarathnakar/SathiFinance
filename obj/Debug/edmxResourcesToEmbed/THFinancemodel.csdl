@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THFinanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="THFinanceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="THFinanceModel.Employee" />
+    <EntitySet Name="tbl_branches" EntityType="THFinanceModel.tbl_branches" />
+    <EntitySet Name="tbl_chitti" EntityType="THFinanceModel.tbl_chitti" />
+    <EntitySet Name="tbl_managers" EntityType="THFinanceModel.tbl_managers" />
+    <AssociationSet Name="FK_tbl_managers_tbl_branches" Association="THFinanceModel.FK_tbl_managers_tbl_branches">
+      <End Role="tbl_branches" EntitySet="tbl_branches" />
+      <End Role="tbl_managers" EntitySet="tbl_managers" />
+    </AssociationSet>
+    <EntitySet Name="tbl_payee" EntityType="THFinanceModel.tbl_payee" />
+    <EntitySet Name="tbl_payment" EntityType="THFinanceModel.tbl_payment" />
+    <EntitySet Name="tbl_Borrowerpayment" EntityType="THFinanceModel.tbl_Borrowerpayment" />
+    <EntitySet Name="tbl_LoanType" EntityType="THFinanceModel.tbl_LoanType" />
+    <EntitySet Name="tbl_borrowerPaymentmethod" EntityType="THFinanceModel.tbl_borrowerPaymentmethod" />
+    <EntitySet Name="tbl_PaymentType" EntityType="THFinanceModel.tbl_PaymentType" />
+    <EntitySet Name="tble_Vehicle" EntityType="THFinanceModel.tble_Vehicle" />
+    <EntitySet Name="THF_User" EntityType="THFinanceModel.THF_User" />
+    <EntitySet Name="tbl_borrower" EntityType="THFinanceModel.tbl_borrower" />
+    <EntitySet Name="tbl_Guarantor" EntityType="THFinanceModel.tbl_Guarantor" />
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="EMP_ORGID" />
+      <PropertyRef Name="EMP_DEPTID" />
+      <PropertyRef Name="EMP_TECHID" />
+      <PropertyRef Name="EMP_SALRY" />
+      <PropertyRef Name="EMP_EMAIL" />
+      <PropertyRef Name="EMP_JOINDATE" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="EMP_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_ORGID" Type="Int32" Nullable="false" />
+    <Property Name="EMP_DEPTID" Type="Int32" Nullable="false" />
+    <Property Name="EMP_TECHID" Type="Int32" Nullable="false" />
+    <Property Name="EMP_SALRY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_EMAIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_JOINDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="tbl_branches">
+    <Key>
+      <PropertyRef Name="branchid" />
+    </Key>
+    <Property Name="branchid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_managers" Relationship="THFinanceModel.FK_tbl_managers_tbl_branches" FromRole="tbl_branches" ToRole="tbl_managers" />
+  </EntityType>
+  <EntityType Name="tbl_chitti">
+    <Key>
+      <PropertyRef Name="CHITTI_ID" />
+    </Key>
+    <Property Name="CHITTI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CHITTI_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_managers">
+    <Key>
+      <PropertyRef Name="manage_id" />
+    </Key>
+    <Property Name="manage_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="manager_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mgbrnch_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_branches" Relationship="THFinanceModel.FK_tbl_managers_tbl_branches" FromRole="tbl_managers" ToRole="tbl_branches" />
+  </EntityType>
+  <Association Name="FK_tbl_managers_tbl_branches">
+    <End Type="THFinanceModel.tbl_branches" Role="tbl_branches" Multiplicity="1" />
+    <End Type="THFinanceModel.tbl_managers" Role="tbl_managers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_branches">
+        <PropertyRef Name="branchid" />
+      </Principal>
+      <Dependent Role="tbl_managers">
+        <PropertyRef Name="mgbrnch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_payee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="branchId" Type="Int32" Nullable="false" />
+    <Property Name="managerId" Type="Int32" Nullable="false" />
+    <Property Name="payeeProof" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NomineeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NomineeProof" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="startdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="paymentmethod" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="givenamount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_payment">
+    <Key>
+      <PropertyRef Name="payId" />
+    </Key>
+    <Property Name="payId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branchId" Type="Int32" Nullable="false" />
+    <Property Name="managerId" Type="Int32" Nullable="false" />
+    <Property Name="totalPayment" Type="Int32" Nullable="false" />
+    <Property Name="prepayDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="presentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="paidAmount" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="Int32" Nullable="false" />
+    <Property Name="remainingAmount" Type="Int32" Nullable="false" />
+    <Property Name="paymentmethod" Type="Int32" />
+    <Property Name="remainingdays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Borrowerpayment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="pay_BranchId" Type="Int32" Nullable="false" />
+    <Property Name="PayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pay_LoantypeId" Type="Int32" Nullable="false" />
+    <Property Name="pay_managerid" Type="Int32" Nullable="false" />
+    <Property Name="pay_borowerStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="paymentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="paidAmount" Type="Int32" Nullable="false" />
+    <Property Name="borrowerRemainingAmount" Type="Int32" Nullable="false" />
+    <Property Name="borrowerRemainingDays" Type="Int32" Nullable="false" />
+    <Property Name="penalityAmount" Type="Int32" Nullable="false" />
+    <Property Name="penalityDays" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_LoanType">
+    <Key>
+      <PropertyRef Name="LoanId" />
+    </Key>
+    <Property Name="LoanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoanBorrowerId" Type="Int32" Nullable="false" />
+    <Property Name="dateofLoan" Type="DateTime" Precision="0" />
+    <Property Name="LoanendDate" Type="DateTime" Precision="0" />
+    <Property Name="TypeOfVehicle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AmountOfLoan" Type="Int32" />
+    <Property Name="Periods" Type="Int32" />
+    <Property Name="RateofInterest" Type="Int32" />
+    <Property Name="monthlyInstalllment" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_borrowerPaymentmethod">
+    <Key>
+      <PropertyRef Name="borrowerPayid" />
+    </Key>
+    <Property Name="borrowerPayid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="borrowerBranchid" Type="Int32" Nullable="false" />
+    <Property Name="borrowerLoanid" Type="Int32" Nullable="false" />
+    <Property Name="borrowerPaymentdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="borrowerPayamount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerReaminingamount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerPenalitydays" Type="Int32" Nullable="false" />
+    <Property Name="borrowerStartdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="borrowerName" Type="Int32" Nullable="false" />
+    <Property Name="borrowermanager" Type="Int32" />
+    <Property Name="createdby" Type="Int32" />
+    <Property Name="modified" Type="Int32" />
+    <Property Name="createddate" Type="DateTime" Precision="0" />
+    <Property Name="modifieddate" Type="DateTime" Precision="0" />
+    <Property Name="totalpayment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_PaymentType">
+    <Key>
+      <PropertyRef Name="paymentId" />
+    </Key>
+    <Property Name="paymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paymentBorrowerId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PaymentAmount" Type="Int32" Nullable="false" />
+    <Property Name="givenamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymentmethod" Type="Int32" />
+    <Property Name="monthlyInterest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tble_Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vehiclemodel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="VehicleChasisNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleEngineNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleBHP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleKeyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleInsurance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleBorroerId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="THF_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserProfessional" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="imagesave" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_borrower">
+    <Key>
+      <PropertyRef Name="borrowerId" />
+    </Key>
+    <Property Name="borrowerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="borrowerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerFatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BorrowerDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="modifiedyby" Type="Int32" Nullable="false" />
+    <Property Name="createdby" Type="Int32" Nullable="false" />
+    <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="borrowerproofType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="borrowerPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="borrowerproof" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Guarantor">
+    <Key>
+      <PropertyRef Name="GuarantorId" />
+    </Key>
+    <Property Name="GuarantorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuarantorborrowerId" Type="Int32" Nullable="false" />
+    <Property Name="GuarantorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GuarantorFatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GuarantorPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GuarantorAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="G_createdDate" Type="DateTime" Precision="0" />
+    <Property Name="G_modifiedDate" Type="DateTime" Precision="0" />
+    <Property Name="G_createdBy" Type="Int32" />
+    <Property Name="G_modifiedBy" Type="Int32" />
+    <Property Name="GuarantorProoftype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GuarantorProof" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Guarantorphoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="GuarantorDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,273 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="THFinance.master.cs" Inherits="THFinance.THFinance" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>THFinance</title>
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >--%>
+   <%-- <link href="css/bootstrap.min.css" rel="stylesheet" />--%>
+   <link href="css/inner.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+     <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker2').datetimepicker();
+            });
+        </script>
+    
+    <script>
+        $(document).ready(function () {
+            $('#rat').click(function () {
+                debugger;
+                $("#editModel").modal('show');
+            })
+        });
+      
+       
+    </script>
+    <style>
+
+        .navbar-default {
+     background-color: #f5f5f5;
+      border:none !important;
+      position: relative;
+    top: 14px;
+}
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="header navbar-fixed-top">
+<div class="container-fluid">
+
+<div class="row">
+<div class="col-md-2 col-sm-2 col-xs-12">
+<img src="images/logo-inner.PNG" class="img-responsive" style="height:85px;" >
+
+</div>
+<div class="col-md-10 col-sm-10 col-xs-12">
+
+<nav role="navigation" class="navbar navbar-default ">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand"><img src="images/inner-eticketingtext.png" class="img-responsive" /></a>
+    </div>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+     <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Frame Work <b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="branches.aspx">Branches</a></li>
+                    <li><a href="Mangers.aspx">Managers</a></li>
+                    <li><a href="PaymentMethod.aspx">Payment Method</a></li>
+                  
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Payee <b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="NewPayee.aspx">New Payee</a></li>
+                   
+                  
+                </ul>
+            </li>
+             <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">payemnt of Payee <b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="Payement.aspx">Payee</a></li>
+                   
+                  
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#"> Payee List<b class="caret"></b></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="PayeeDetails.aspx">Payee Details</a></li>
+                   
+                  
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login</a></li>
+        </ul></div> 
+</nav>
+    
+</div>
+
+</div>
+</div>
+
+
+</div>
+
+
+
+
+        <div class="content" style="margin-top: 91px;">
+    
+            <div class="col-xs-12 col-sm-3 col-md-2">
+                <div class="nav-side-menu">
+                    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+                    <ul>
+                     <li data-toggle="collapse" data-target="#products1" class="collapsed ">
+                               <a class="inbox-avatar" href="javascript:;">
+                            <img width="34" hieght="30" class="img-circle" src="as.jpg" runat="server" id="imgupload" style="float:left;"><div class="user-name">
+                            <h5><asp:Label ID="lbl_user" runat="server" Text=""></asp:Label><br /><asp:Label ID="lbl_professional" runat="server" Text=""></asp:Label> <i class="fa fa-chevron-down"></i></h5>
+                          
+                        </div>
+                        </a>
+                            </li></ul>
+                            <ul class="collapse" id="products1">
+                                <li class="active"><a href="#">Change Password</a></li>
+                                <li><a href="#">Logout</a></li>
+                               
+                            </ul>
+                   
+
+                    <div class="menu-list">
+
+                        <ul id="menu-content" class="menu-content collapse out">
+                            <li data-toggle="collapse" data-target="#products2" class="collapsed active">
+                                <a href="#"><i class="fa fa-home fa-lg"></i> Home</a>
+                            </li>
+
+                            <li data-toggle="collapse" data-target="#products" class="collapsed ">
+                                <a href="#"><i class="fa fa-gift fa-lg"></i> Borrower <span class="arrow"></span></a>
+                            </li>
+                            <ul class="sub-menu collapse" id="products">
+                                <li class="active"><a href="BorrowerRegistration.aspx">Borrower Registration</a></li>
+                                <li><a href="Guarantee.aspx">Guarantee</a></li>
+                                <li><a href="vehicle.aspx">Vehicle</a></li>
+                                <li><a href="PaymentMethod.aspx">Payment Type</a></li>
+                               
+                            </ul>
+
+
+                            <li data-toggle="collapse" data-target="#service" class="collapsed">
+                                <a href="#"><i class="fa fa-globe fa-lg"></i> Payment <span class="arrow"></span></a>
+                            </li>
+                            <ul class="sub-menu collapse" id="service">
+                                <li><a href="borrowerPayment.aspx">Guarantee</a></li>
+                            </ul>
+
+
+                           
+
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+             
+            <div class="col-sm-9 col-xs-12 col-md-10 " id="contentbg" >
+               
+                <div style="padding:5px 20px;">
+                     <div class="table-responsive" >  
+                                    <asp:GridView ID="grdCustomer"  runat="server" Width="100%" CssClass="table table-striped table-bordered table-hover example " AutoGenerateColumns="False"  EmptyDataText="There are no data records to display." AllowPaging="true" OnRowCommand="grdCustomer_RowCommand">  
+                                        <Columns>  
+                                          <%--  <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" SortExpression="CustomerID" />  --%>
+                                             
+
+                            <asp:ButtonField CommandName="editRecord"  ControlStyle-CssClass="btn btn-info" ButtonType="Button" Text="Edit" HeaderText="Edit Record" >
+
+                               
+
+                            </asp:ButtonField>
+                                            <asp:BoundField DataField="EMP_NAME" HeaderText="EMP_NAME" SortExpression="EMP_NAME" HeaderStyle-CssClass="visible-lg" ItemStyle-CssClass="visible-lg" />  
+                                            <asp:BoundField DataField="EMP_ORGID" HeaderText="EMP_ORGID" SortExpression="EMP_ORGID" />  
+                                            <asp:BoundField DataField="EMP_DEPTID" HeaderText="EMP_DEPTID" SortExpression="EMP_DEPTID"  />  
+                                            <asp:BoundField DataField="EMP_TECHID" HeaderText="EMP_TECHID" SortExpression="EMP_TECHID"  />  
+                                            <asp:BoundField DataField="EMP_SALRY" HeaderText="EMP_SALRY" SortExpression="EMP_SALRY"  />  
+                                            <asp:BoundField DataField="EMP_EMAIL" HeaderText="EMP_EMAIL" SortExpression="EMP_EMAIL"  />  
+                                            <asp:BoundField DataField="EMP_JOINDATE" HeaderText="EMP_JOINDATE" SortExpression="EMP_JOINDATE"  />  
+                                           
+                                        </Columns>  
+                                        
+                                        
+                                    </asp:GridView>  
+                                </div>   
+
+                  <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+                </div>
+
+
+            </div>
+        </div>
+  
+     <!-- Edit Modal Starts here -->
+<div id="editModal" class="modal hide fade"
+       tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+       aria-hidden="true">
+   <div class="modal-header">
+       <button type="button" class="close"
+             data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="editModalLabel">Edit Record</h3>
+   </div>
+   <asp:UpdatePanel ID="upEdit" runat="server">
+       <ContentTemplate>
+     <div class="modal-body">
+  <table class="table">
+  <tr>
+  <td>Country Code : 
+  <asp:Label ID="lblCountryCode" runat="server"></asp:Label>
+  </td>
+  </tr>
+  <tr>
+  <td>Population : 
+  <asp:TextBox ID="txtPopulation" runat="server"></asp:TextBox>
+  </td>
+  </tr>
+  <tr>
+  <td>Country Name:
+  <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+  </td>
+  </tr>
+  <tr>
+  <td>Continent:
+  <asp:TextBox ID="txtContinent1" runat="server"></asp:TextBox>
+  </td>
+  </tr>
+  </table>
+ </div>
+ <div class="modal-footer">
+ <%-- <asp:Label ID="lblResult" Visible="false" runat="server"></asp:Label>
+  <asp:Button ID="btnSave" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnSave_Click" />--%>
+  <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+ </div>
+ </ContentTemplate>
+ <%--<Triggers>
+  <asp:AsyncPostBackTrigger ControlID="grdCustomer" EventName="RowCommand" />
+  <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+ </Triggers>--%>
+</asp:UpdatePanel>
+</div>
+<!-- Edit Modal Ends here -->
+    </form>
+</body>
+</html>
